@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\NamrataYadav\\SupBusiness (1)\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness.csproj": {}
+    "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\SupBusiness.csproj": {}
   },
   "projects": {
-    "D:\\NamrataYadav\\SupBusiness (1)\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness.csproj": {
+    "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\SupBusiness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\NamrataYadav\\SupBusiness (1)\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness.csproj",
+        "projectUniqueName": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\SupBusiness.csproj",
         "projectName": "SupBusiness",
-        "projectPath": "D:\\NamrataYadav\\SupBusiness (1)\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness.csproj",
+        "projectPath": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\SupBusiness.csproj",
         "packagesPath": "C:\\Users\\piyus\\.nuget\\packages\\",
-        "outputPath": "D:\\NamrataYadav\\SupBusiness (1)\\SupBusiness\\SupBusiness\\SupBusiness\\SupBusiness\\obj\\",
+        "outputPath": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

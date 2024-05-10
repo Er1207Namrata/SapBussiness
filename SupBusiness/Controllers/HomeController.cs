@@ -13,6 +13,7 @@ namespace SupBusiness.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+
         }
 
         public IActionResult Index(MemberRegistration model)
