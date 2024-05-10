@@ -1,0 +1,88 @@
+﻿@model SupBusiness.Models.MemberRegistration
+@{
+    ViewData["Title"] = "UserRegistration";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<form asp-action="UserRegistration">
+    <div class="content">
+        <div class="page-inner">
+            <div class="row page-titles">
+
+                <h4>User Registration</h4>
+            
+        </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email2">First Name</label><span style="color:red;">*</span>
+                                    <input type="text" class="form-control" asp-for="FirstName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="password">Middle Name</label>
+                                    <input type="text" class="form-control" asp-for="MiddleName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email2">Last Name </label><span style="color:red;">*</span>
+                                    <input type="text" class="form-control" asp-for="LastName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email2">Mobile No</label><span style="color:red;">*</span>
+                                    <input type="number" class="form-control" asp-for="MobileNumber" maxlength="10" />
+                                    </div>
+                                </div>
+
+                                
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="card-action">
+
+                            <input type="submit" class="btn btn-success" name="Save" value="Save" id="Save" onclick="return fvalidate()" />
+
+
+                        <a href="/Admin/UserRegistration" class="btn btn-danger">Cancel</a>
+                           
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    function fvalidate()
+    {
+        if ($('#FirstName').val() == "" || $('#FirstName').val()==null)
+        {
+            $('#FirstName').focus();
+            return false;
+        
+        }
+        if ($('#LastName').val() == "" || $('#LastName').val() == null) {
+            $('#LastName').focus();
+            return false;
+        }
+        if ($('#MobileNumber').val() == "" || $('#MobileNumber').val() == null) {
+            $('#MobileNumber').focus();
+            return false;
+        }
+    }
+</script>

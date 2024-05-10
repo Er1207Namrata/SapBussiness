@@ -1,0 +1,74 @@
+﻿@model SupBusiness.Models.MemberRegistration
+@{
+    ViewData["Title"] = "UserRegistrationList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+    <div class="page-inner">
+        @*<div class="page-header">
+        <h4 class="page-title">Sector Master List</h4>
+        @if (PermissionManager.IsActionPermit("Sector Master", ViewOptions.FormSave))
+        {
+        <a href="/Master/SectorMaster" class="btn btn-primary btn-round ml-auto" style="flood-color:white;"><i class="fa fa-plus"></i>Add Sector</a>
+        }
+        </div>*@
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+
+                                <tr class="hdr">
+                                    <th>S. No.</th>
+                                    <th>Login Id</th>
+                                    <th>Password</th>
+                                    <th>Name</th>
+                                    <th>Mobile Number</th>
+                                    <th>Create Date</th>
+
+                                    <th align="left" scope="col">Action</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @if (Model != null && Model.dtDetails != null && Model.dtDetails.Rows.Count > 0)
+                                {
+                                    int s = 0;
+                                    for (int i = 0; i < Model.dtDetails.Rows.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>@(s + 1)</td>
+                                            <td>@Model.dtDetails.Rows[i]["LoginId"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["Password"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["Name"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["MobileNo"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
+                                            <td>
+                                                <a href="#" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="text-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                        s++;
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5"> No Record found !!</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

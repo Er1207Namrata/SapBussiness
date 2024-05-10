@@ -1,0 +1,107 @@
+﻿@model SupBusiness.Models.UserTask
+@{
+    ViewData["Title"] = "AddUserTask";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+    <div class="content">
+        <div class="page-inner">
+            <div class="row page-titles">
+
+                <h4>Add Task List</h4>
+                <h3 class="text-danger">@TempData["Msg"]</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <form asp-action="AddUserTask">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email2">User LoginId</label><span style="color:red;">*</span>
+                                        <input type="text" class="form-control" asp-for="LoginId" onchange="return getUserDetails()" />
+                                       <input type="hidden" asp-for="Pk_Id"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                         <label for="email2">Name</label><span style="color:red;">*</span>
+                                            <input type="text" class="form-control" asp-for="Name" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email2">Task Name</label><span style="color:red;">*</span>
+                                            <input type="text" class="form-control" asp-for="TaskName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email2">Task Details</label><span style="color:red;">*</span>
+                                            <textarea type="text" class="form-control" asp-for="TaskDetails" ></textarea>
+                                    </div>
+                                </div>
+                                 <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email2">&nbsp;</label>
+                                            <input type="submit" class="btn btn-success" name="Save" value="Save" id="Save" onclick="return fvalidate()" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                       </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <script>
+        function getUserDetails() {
+            var loginId = $('#LoginId').val();
+            $.ajax({
+                url: '/Admin/GetUserDetails',
+                data: { loginId: loginId },
+                type: 'GET',
+                success: function (response) {
+                    if (response != null) {
+                        console.log(response);
+                        if (response != null) {
+                            $("#Name").val(response.name);
+                        }
+                        else {
+                            alert('Somthing went wrong');
+                        }
+                    }
+                },
+                Error: function () {
+
+                }
+            });
+        }
+        function fvalidate()
+        {
+
+            if($('#LoginId').val()=='' ||$('#LoginId').val()==null )
+            {
+                $('#LoginId').focus();
+                return false;
+            }
+            if($('#TaskName').val()=='' ||$('#TaskName').val()==null )
+            {
+                $('#TaskName').focus();
+                return false;
+            }
+            if($('#TaskDetails').val()=='' ||$('#TaskDetails').val()==null )
+            {
+                $('#TaskDetails').focus();
+                return false;
+            }
+        }
+    </script>

@@ -1,0 +1,114 @@
+﻿@model SupBusiness.Models.UserTask
+@{
+    ViewData["Title"] = "TaskList";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+
+<div class="content">
+    <div class="page-inner">
+        @*<div class="page-header">
+        <h4 class="page-title">Sector Master List</h4>
+        @if (PermissionManager.IsActionPermit("Sector Master", ViewOptions.FormSave))
+        {
+        <a href="/Master/SectorMaster" class="btn btn-primary btn-round ml-auto" style="flood-color:white;"><i class="fa fa-plus"></i>Add Sector</a>
+        }
+        </div>*@
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+
+                                <tr class="hdr">
+                                    <th>S. No.</th>
+                                    <th>Task Name</th>
+                                    <th>Task Details</th>
+                                    <th>Status</th>
+
+                                    <th align="left" scope="col">Action</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @if (Model != null && Model.dtDetails != null && Model.dtDetails.Rows.Count > 0)
+                                {
+                                    int s = 0;
+                                    for (int i = 0; i < Model.dtDetails.Rows.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>@(s + 1)</td>
+                                            <td>@Model.dtDetails.Rows[i]["TaskName"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["TaskDetails"].ToString()</td>
+                                            <td>
+                                                @if (@Model.dtDetails.Rows[i]["TaskDetails"].ToString() == "Pending")
+                                                {
+                                                    <a href="#" class="badge bg-info text-white" onclick="return fUpdateSatus('@Model.dtDetails.Rows[i]["Pk_Id"].ToString()')">@Model.dtDetails.Rows[i]["status"].ToString()</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="#" class="badge bg-success text-white">@Model.dtDetails.Rows[i]["status"].ToString()</a>
+                                                }
+                                            </td>
+                                            <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
+                                            <td>
+                                                <a href="#" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="text-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                        s++;
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5"> No Record found !!</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    function fUpdateSatus(pk_id) {
+        debugger;
+        // var confirm= 'confirm("Are you sure want to complete their task?")';
+        // if (confirm==true)
+        // {
+        $.ajax({
+            url: '/User/UpdateTaskstatus',
+            data: { pk_id: pk_id },
+            type: 'GET',
+            success: function (response) {
+                if (response != null) {
+                    console.log(response);
+                    if (response != null) {
+                        alert(response.msg);
+                    }
+                    else {
+                        alert('Somthing went wrong');
+                    }
+                }
+            },
+            Error: function () {
+
+            }
+        });
+        // }
+    }
+</script>
+
+
+

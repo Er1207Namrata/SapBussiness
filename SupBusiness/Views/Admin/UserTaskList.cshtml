@@ -1,0 +1,177 @@
+﻿@model SupBusiness.Models.UserTask
+
+@{
+    ViewData["Title"] = "UserTaskList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row page-titles">
+    <div class="col-md-12 col-12 align-self-center d-flex justify-content-between">
+        <h4 class="page-title mb-0">Task List</h4>
+        <h4 class="text-danger">@TempData["Msg"]</h4>
+
+    </div>
+</div>
+
+<div class="content">
+    <div class="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Pending Task List</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+
+                                <tr class="hdr">
+                                    <th>S. No.</th>
+                                    <th>Login Id</th>
+                                    <th>Name</th>
+                                    <th>Task Name</th>
+                                    <th>Task Details</th>
+                                    <th>Status</th>
+
+                                    <th align="left" scope="col">Action</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @if (Model != null && Model.dtDetails != null && Model.dtDetails.Rows.Count > 0)
+                                {
+                                    int s = 0;
+                                    for (int i = 0; i < Model.dtDetails.Rows.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>@(s + 1)</td>
+                                            <td>@Model.dtDetails.Rows[i]["LoginId"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["Name"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["TaskName"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["TaskDetails"].ToString()</td>
+                                            <td>
+
+                                                <a href="#" class="badge bg-info text-white" onclick="return fUpdateSatus('@Model.dtDetails.Rows[i]["Pk_Id"].ToString()')">@Model.dtDetails.Rows[i]["status"].ToString()</a>
+
+
+                                            </td>
+                                            <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
+                                            <td>
+                                                <a href="/Admin/AddUserTask?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning">Edit</a>
+                                                <a href="/Admin/UserTaskList?DelId=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-danger" title="Delete">Delete</a>
+                                            </td>
+                                        </tr>
+                                        s++;
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5"> No Record found !!</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Completed Task List</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+
+                                <tr class="hdr">
+                                    <th>S. No.</th>
+                                    <th>Login Id</th>
+                                    <th>Name</th>
+                                    <th>Task Name</th>
+                                    <th>Task Details</th>
+                                    <th>Status</th>
+
+                                    <th align="left" scope="col">Action</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @if (Model != null && Model.dtDetails1 != null && Model.dtDetails1.Rows.Count > 0)
+                                {
+                                    int s = 0;
+                                    for (int i = 0; i < Model.dtDetails1.Rows.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>@(s + 1)</td>
+                                            <td>@Model.dtDetails1.Rows[i]["LoginId"].ToString()</td>
+                                            <td>@Model.dtDetails1.Rows[i]["Name"].ToString()</td>
+                                            <td>@Model.dtDetails1.Rows[i]["TaskName"].ToString()</td>
+                                            <td>@Model.dtDetails1.Rows[i]["TaskDetails"].ToString()</td>
+                                            <td>
+
+                                                <a href="#" class="badge bg-success text-white">@Model.dtDetails1.Rows[i]["status"].ToString()</a>
+
+                                            </td>
+                                            <td>@Model.dtDetails1.Rows[i]["AddedOn"].ToString()</td>
+                                            <td>
+
+                                                <a href="/Admin/UserTaskList?DelId=@Model.dtDetails1.Rows[i]["Pk_Id"].ToString()" class="btn btn-warning" title="View">Download</a>
+                                            </td>
+                                        </tr>
+                                        s++;
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5"> No Record found !!</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function fUpdateSatus(pk_id) {
+        debugger;
+        var confirm = 'confirm("Are you sure want to complete their task?")';
+        if (confirm == true) {
+            $.ajax({
+                url: '/Admin/UpdateTaskstatus',
+                data: { pk_id: pk_id },
+                type: 'GET',
+                success: function (response) {
+                    if (response != null) {
+                        console.log(response);
+                        if (response != null) {
+                            alert(response.msg);
+                        }
+                        else {
+                            alert('Somthing went wrong');
+                            window.reload();
+                        }
+                    }
+                },
+                Error: function () {
+
+                }
+            });
+        }
+    }
+</script>
+
+

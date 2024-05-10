@@ -1,0 +1,117 @@
+﻿<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <!-- ============================================================== -->
+        <!-- Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="~/Associate">
+                <!-- Logo icon -->
+                <b>
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Light Logo icon --> 
+                    <h3>SUP Business</h3>
+                    @*<img src="~/AssetsNew/img/Blue.png"  alt="ShreeNamanInfraCity" class="light-logo" />*@
+                </b>
+                <!--End Logo icon -->
+                <!-- Logo text -->
+                <span>
+                    <!-- Light Logo text -->
+                    @*<h3>SUP Business</h3>*@
+                    @*<img src="~/AssetsNew/img/logo.png" alt="SupBusiness" class="light-logo" />*@
+                </span>
+            </a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-collapse">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav mr-auto mt-md-0">
+                <!-- This is  -->
+                <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
+                <li class="nav-item"><a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+
+                <!-- ============================================================== -->
+                <!-- End Messages -->
+                <!-- ============================================================== -->
+            </ul>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav my-lg-0">
+                <!-- ============================================================== -->
+                <!-- Profile -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown">
+                    <div class="d-flex flex-row">
+                        <div class="align-self-center m-l-20">
+                            <h3 class="m-b-0 text-white font-weight-bold">@Context.Session.GetString("LoginId")</h3>
+                            <h5 class="text-white m-b-0 font-weight-normal"> @Context.Session.GetString("Name")</h5>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#-" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       @* @if (Session["ProfilePicture"] != null)
+                        {
+                            if (!string.IsNullOrEmpty(Session["ProfilePicture"].ToString()))
+                            {
+                                <img src="@Session["ProfilePicture"].ToString()" alt="user" class="profile-pic" style="height:50px;width:50px;background:#fff;" />
+                            }
+                            else
+                            {
+                                <img src="~/assets/img/no-image.jpg" alt="user" class="profile-pic" style="height:30px;width:30px" />
+                            }
+                        }
+                        else
+                        {
+                            <img src="~/assets/img/no-image.jpg" alt="user" class="profile-pic" style="height:30px;width:30px" />
+                        }*@
+                        <img src="~/assets/img/no-image.jpg" alt="user" class="profile-pic" style="height:30px;width:30px" />
+
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right scale-up">
+                        <ul class="dropdown-user">
+                            <li>
+                                <div class="dw-user-box">
+                                    <div class="u-img">
+                                        @*@if (Session["ProfilePicture"] != null)
+                                        {
+                                            if (!string.IsNullOrEmpty(Session["ProfilePicture"].ToString()))
+                                            {
+                                                <img src="@Session["ProfilePicture"].ToString()" alt="user" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/assets/img/no-image.jpg" alt="user" />
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <img src="~/assets/img/no-image.jpg" alt="user" />
+                                        }*@
+                                        <img src="~/assets/img/no-image.jpg" alt="user" />
+
+                                    </div>
+                                    <div class="u-text">
+                                       @* <h4>@Convert.ToString(Session["sesDisplayName"]) </h4>
+                                        <p class="text-muted">@Convert.ToString(Session["SesEmailId"])</p>*@
+                                        <h4>Hello</h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="~/Profile/UserProfile"><i class="ti-user"></i> My Profile</a></li>
+                            @*<li><a href="#-"><i class="ti-wallet"></i> My Balance</a></li>
+                    <li><a href="#-"><i class="ti-email"></i> Inbox</a></li>*@
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/Login/Logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
