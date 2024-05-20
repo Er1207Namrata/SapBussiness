@@ -86,6 +86,8 @@ namespace SupBusiness.Models
         public static string? saveLeadregisraion = "saveLeadregisraion";
         public static string? GetMasterData = "GetMasterData";
         public static string? GetDesignationMaster = "GetDesignationMaster";
+        public static string? SaveTopUp = "SaveTopUp";
+        public static string? SavePaymentMode = "SavePaymentMode";
       
     }
     public static class SessionExtensions

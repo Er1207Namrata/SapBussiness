@@ -31,6 +31,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGVhZFJlZ2lzdHJhdGlvbkxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/PaymentModeMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGF5bWVudE1vZGVNYXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/SiteMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2l0ZU1hc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

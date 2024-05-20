@@ -6,92 +6,93 @@
 
 <div class="row page-titles">
     <div class="col-md-12 col-12 align-self-center d-flex justify-content-between">
-        <h4 class="page-title mb-0">Sector Master List</h4>
+        <h4 class="page-title mb-0">Top Up</h4>
+        <h4 class="page-title mb-0">@TempData["Msg"]</h4>
 
-        <a href="#" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
-            <i class="fa fa-plus"></i>
-            Add Task
-        </a>
+
 
     </div>
 </div>
 
 <div class="content">
     <div class="page-inner">
-        @*<div class="page-header">
-        <h4 class="page-title">Sector Master List</h4>
-        @if (PermissionManager.IsActionPermit("Sector Master", ViewOptions.FormSave))
-        {
-        <a href="/Master/SectorMaster" class="btn btn-primary btn-round ml-auto" style="flood-color:white;"><i class="fa fa-plus"></i>Add Sector</a>
-        }
-        </div>*@
+      
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="email2">User LoginId</label><span style="color:red;">*</span>
-                                    <input type="text" class="form-control" asp-for="LoginId" onchange="return getUserDetails()" />
-                                    <input type="hidden" asp-for="Pk_Id" />
+                    <form asp-action="TopUp">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email2">User LoginId</label><span style="color:red;">*</span>
+                                        <input type="text" class="form-control" asp-for="LoginId" onchange="return getUserDetails()" />
+                                        <input type="hidden" asp-for="Pk_Id" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-6 ">
-                                <div class="form-group">
-                                    <label for="email2">Name</label><span style="color:red;">*</span>
-                                    <input type="text" class="form-control" asp-for="Name" />
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <label for="email2">Name</label><span style="color:red;">*</span>
+                                        <input type="text" class="form-control" asp-for="Name" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 ">
-                                <div class="form-group">
-                                    <label for="email2">Amount</label><span style="color:red;">*</span>
-                                    <input type="text" class="form-control" asp-for="Amount " />
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <label for="email2">Amount</label><span style="color:red;">*</span>
+                                        <input type="text" class="form-control" asp-for="Amount " />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 ">
-                                <div class="form-group">
-                                    <label for="email2">Payment Mode</label><span style="color:red;">*</span>
-                                    <select asp-for="Pk_PaymentId" class="form-control">
-                                        <option value="0">--Select Option--</option>
-                                    </select>
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <label for="email2">Payment Mode</label><span style="color:red;">*</span>
+                                        <select asp-for="Pk_PaymentId" class="form-control" onclick="return fbankDetails()">
+                                            <option value="0">--Select Option--</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div id="dicBankDetails">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="BankAccount">Bank Account No</label><span style="color:red;">*</span>
-                                  <input type="text" class="form-control" asp-for="bankAccountNo" />
-                                    
+                                <div class="row" id="dicBankDetails" style="display:none">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="BankAccount">Bank Name</label><span style="color:red;">*</span>
+                                            <input type="text" class="form-control" asp-for="BankName" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="BankAccount">Bank Account No</label><span style="color:red;">*</span>
+                                            <input type="text" class="form-control" asp-for="bankAccountNo" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="BankAccount">IFSC Code</label><span style="color:red;">*</span>
+                                            <input type="text" class="form-control" asp-for="IFSCCode" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="BankAccount">Attatch Ment</label><span style="color:red;">*</span>
+                                            <input type="file" class="form-control" asp-for="Document" />
+
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="BankAccount">IFSC Code</label><span style="color:red;">*</span>
-                                    <input type="text" class="form-control" asp-for="IFSCCOde" />
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary" value="Save" name="Save" id="Save" />
+                                    </div>
 
                                 </div>
-                            </div> 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="BankAccount">Attatch Ment</label><span style="color:red;">*</span>
-                                    <input type="file" class="form-control" asp-for="Document" />
 
-                                </div>
                             </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" value="Save" name="Save" id="Save" />
-                                </div>
-                               
-                            </div>
-
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -105,7 +106,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        
+
                     </div>
                     <div class="modal-body">
                         <div class="card">
@@ -115,15 +116,12 @@
                                 <div class="card-title">Add/Update Task List </div>
                             </div>
 
-
-                            
-
                         </div>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                       
+
                     </div>
                 </div>
             </form>
@@ -152,6 +150,15 @@
 
                 }
             });
+        }
+        function fbankDetails() {
+            var paimentId = $('#Pk_PaymentId').val();
+            if (paimentId == "Cash") {
+                $('#dicBankDetails').css("display", "none");
+            }
+            else {
+                $('#dicBankDetails').css("display", "block");
+            }
         }
     </script>
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SupBusiness.Models;
 using System.Data;
 using System.Reflection;
@@ -227,9 +228,46 @@ namespace SupBusiness.Controllers
             return View(model);
         }
         
-        public ActionResult TopUp()
+        public ActionResult TopUp(MemberTopUp model,string Save)
         {
-            return View();
+            try
+            {
+                DataSet dataSet = new DataSet();
+                List<SelectListItem> ddldesignation = new List<SelectListItem>();
+                model.OpCode = 2;
+                dataSet = model.GetMasterData();
+                ddldesignation.Add(new SelectListItem { Text = "--Select Designation--", Value = "0" });
+                if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                    {
+                        ddldesignation.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[0]["Name"].ToString(), Value = dataSet.Tables[0].Rows[0]["Id"].ToString() });
+                    }
+                }
+                ViewBag.ddldesignation = ddldesignation;
+                if (!string.IsNullOrEmpty(Save))
+                {
+                    DataSet ds = new DataSet();
+                    ds = model.SaveTopUp();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0]["Flag"].ToString() == "1")
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["Msg"].ToString();
+                        }
+                        else
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["Msg"].ToString();
+                        }
+                    }
+                }
+              
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+            return View(model);
         }
 
         public IActionResult DesignationMaster(Designation model, string Save)
@@ -311,6 +349,40 @@ namespace SupBusiness.Controllers
             return Json(model);
         }
        
+        public ActionResult PaymentModeMaster(MemberTopUp model, string Save)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                if(!string.IsNullOrEmpty(Save))
+                {
+                    model.AddedBy = HttpContext.Session.GetString("Fk_MemId");
+                    model.OpCode = 1;
+                    ds = model.GetPaymentMode();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
+                            
+                        }
+                        else
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["flag"].ToString();
+                           
+                        }
+                    }
+                }
+                model.OpCode = 4;
+                ds = model.GetPaymentMode();
+                model.dtDetails = ds.Tables[0];
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+            return View(model);
+        }
        
     
     }
