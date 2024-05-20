@@ -233,18 +233,18 @@ namespace SupBusiness.Controllers
             try
             {
                 DataSet dataSet = new DataSet();
-                List<SelectListItem> ddldesignation = new List<SelectListItem>();
-                model.OpCode = 2;
+                List<SelectListItem> ddlpaymentmode = new List<SelectListItem>();
+                model.OpCode = 1;
                 dataSet = model.GetMasterData();
-                ddldesignation.Add(new SelectListItem { Text = "--Select Designation--", Value = "0" });
+                ddlpaymentmode.Add(new SelectListItem { Text = "--Select Designation--", Value = "0" });
                 if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
                 {
                     for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                     {
-                        ddldesignation.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[0]["Name"].ToString(), Value = dataSet.Tables[0].Rows[0]["Id"].ToString() });
+                        ddlpaymentmode.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[0]["Name"].ToString(), Value = dataSet.Tables[0].Rows[0]["Id"].ToString() });
                     }
                 }
-                ViewBag.ddldesignation = ddldesignation;
+                ViewBag.ddlpaymentmode = ddlpaymentmode;
                 if (!string.IsNullOrEmpty(Save))
                 {
                     DataSet ds = new DataSet();

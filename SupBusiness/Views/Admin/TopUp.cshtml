@@ -48,9 +48,9 @@
                                 <div class="col-md-6 ">
                                     <div class="form-group">
                                         <label for="email2">Payment Mode</label><span style="color:red;">*</span>
-                                        <select asp-for="Pk_PaymentId" class="form-control" onclick="return fbankDetails()">
-                                            <option value="0">--Select Option--</option>
-                                        </select>
+
+                                        @Html.DropDownListFor(m => m.Pk_PaymentId, new SelectList(ViewBag.ddlpaymentmode, "Value", "Text"), new { @class = "web form-control" })
+
                                     </div>
                                 </div>
                                 <div class="row" id="dicBankDetails" style="display:none">
