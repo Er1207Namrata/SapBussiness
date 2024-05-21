@@ -49,7 +49,7 @@
                                     <div class="form-group">
                                         <label for="email2">Payment Mode</label><span style="color:red;">*</span>
 
-                                        @Html.DropDownListFor(m => m.Pk_PaymentId, new SelectList(ViewBag.ddlpaymentmode, "Value", "Text"), new { @class = "web form-control" })
+                                        @Html.DropDownListFor(m => m.Pk_PaymentId, new SelectList(ViewBag.ddlpaymentmode, "Value", "Text"), new { @class = "web form-control",@onclick="return fbankDetails()" })
 
                                     </div>
                                 </div>

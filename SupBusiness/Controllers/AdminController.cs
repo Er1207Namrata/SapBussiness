@@ -248,6 +248,7 @@ namespace SupBusiness.Controllers
                 if (!string.IsNullOrEmpty(Save))
                 {
                     DataSet ds = new DataSet();
+                    model.AddedBy = HttpContext.Session.GetString("Fk_MemId");
                     ds = model.SaveTopUp();
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {

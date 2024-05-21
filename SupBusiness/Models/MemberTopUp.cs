@@ -20,7 +20,7 @@ namespace SupBusiness.Models
             {
                 SqlParameter[] para = {
 
-                                      new SqlParameter("@FK_MemId",Fk_MemId),
+                                      new SqlParameter("@LoginId",LoginId),
                                       new SqlParameter("@FK_PaymentId",Pk_PaymentId),
                                       new SqlParameter("@Amount",Amount),
                                       new SqlParameter("@BankName",BankName),
