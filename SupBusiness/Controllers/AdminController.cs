@@ -43,7 +43,7 @@ namespace SupBusiness.Controllers
             }
             return View();
         }
-        public IActionResult SiteMaster(SiteMaster model,string Save)
+        public IActionResult SiteMaster(SiteMaster model,string Save,string editId)
         {
             try
             {
@@ -72,6 +72,16 @@ namespace SupBusiness.Controllers
                         }
                     }
                     
+                }
+                if(!string.IsNullOrEmpty(editId))
+                {
+                    model.Pk_Id = editId;
+                    ds = model.SaveSiteMaster();
+                    if(ds!=null && ds.Tables.Count>0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        model.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
+                        model.Pk_Id = ds.Tables[0].Rows[0]["Pk_Id"].ToString();
+                    }
                 }
                 model.OpCode = 4;
                 ds = model.SaveSiteMaster();

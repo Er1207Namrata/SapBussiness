@@ -21,6 +21,14 @@
                             <div class="row">
                                 <div class="col-md-6 col-lg-4">
                                     <div class="form-group">
+                                        <label for="email2">Site Name</label><span style="color:red;">*</span>
+                                        <input type="text" class="form-control" asp-for="SiteName"  />
+                                        <input type="hidden" asp-for="SiteId" />
+                                        <input type="hidden" asp-for="Pk_Id" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
                                         <label for="email2">User LoginId</label><span style="color:red;">*</span>
                                         <input type="text" class="form-control" asp-for="LoginId" onchange="return getUserDetails()" />
                                        <input type="hidden" asp-for="Pk_Id"/>

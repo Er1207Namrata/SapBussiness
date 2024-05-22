@@ -53,8 +53,9 @@
                                     <td>@Model.dtDetails.Rows[i]["status"].ToString()</td>*@
                                             <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
                                             <td>
-                                                <a href="#" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="text-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                                <a href="/Admin/AddUserTask" title="Add Task" class="btn btn-primary  btn-sm text-white">Add Task</a>
+                                                <a href="/Admin/SiteMaster?editId=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="/Admin/SiteMaster?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-danger btn-sm text-white" title="Delete">Delete</a>
                                             </td>
                                         </tr>
                                         s++;

@@ -7,6 +7,8 @@ namespace SupBusiness.Models
     {
         public string TaskName { get; set; }
         public string TaskDetails { get; set; }
+        public string SiteName { get; set; }
+        public string SiteId { get; set; }
 
         public DataSet GetUserDetails()
         {

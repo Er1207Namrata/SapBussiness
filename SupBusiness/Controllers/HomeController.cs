@@ -155,7 +155,7 @@ namespace SupBusiness.Controllers
         {
             return View();
         }
-        public ActionResult SaveLeadRegistration(MemberRegistration model,string firstname,string EmailId, string PhoneNo, string txtAddress, string DesignationId)
+        public ActionResult SaveLeadRegistration(MemberRegistration model,string firstname,string EmailId, string PhoneNo, string txtAddress)
         {
             try
             {
@@ -164,7 +164,7 @@ namespace SupBusiness.Controllers
                 model.FirstName = firstname;
                 model.EmailId = EmailId;
                 model.MobileNumber = PhoneNo;
-                model.Pk_DesignationId = DesignationId;
+                model.Pk_DesignationId = "0";
                 model.AddedBy = "1";
                 model.OpCode = 1;
                 ds = model.SaveLeadRegistration();
