@@ -25,6 +25,7 @@
                                     <div class="form-group">
                                         <label for="email2">First Name</label><span style="color:red;">*</span>
                                     <input type="text" class="form-control" asp-for="FirstName" />
+                                    <input type="hidden" asp-for="Pk_Id" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
@@ -51,8 +52,15 @@
                             </div>
                         </div>
                         <div class="card-action">
-
-                            <input type="submit" class="btn btn-success" name="Save" value="Save" id="Save" onclick="return fvalidate()" />
+                            @if(Model!=null)
+                            {
+                                <input type="submit" class="btn btn-success" name="Save" value="Update" id="Save" />
+                            }
+                            else
+                            {
+                                 <input type="submit" class="btn btn-success" name="Save" value="Save" id="Save" onclick="return fvalidate()" />
+                            }
+                           
 
 
                         <a href="/Admin/UserRegistration" class="btn btn-danger">Cancel</a>

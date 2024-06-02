@@ -28,7 +28,7 @@
                                 <tr class="hdr">
                                     <th>S. No.</th>
                                     <th>Login Id</th>
-                                    <th>Name</th>
+                                    <th>Site Name</th>
                                     <th>Task Name</th>
                                     <th>Task Details</th>
                                     <th>Status</th>
@@ -49,19 +49,19 @@
                                         <tr>
                                             <td>@(s + 1)</td>
                                             <td>@Model.dtDetails.Rows[i]["LoginId"].ToString()</td>
-                                            <td>@Model.dtDetails.Rows[i]["Name"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["SiteName"].ToString()</td>
                                             <td>@Model.dtDetails.Rows[i]["TaskName"].ToString()</td>
                                             <td>@Model.dtDetails.Rows[i]["TaskDetails"].ToString()</td>
                                             <td>
 
-                                                <a href="#" class="badge bg-info text-white" onclick="return fUpdateSatus('@Model.dtDetails.Rows[i]["Pk_Id"].ToString()')">@Model.dtDetails.Rows[i]["status"].ToString()</a>
+                                                <a href="#" class="badge bg-info text-white" onclick="return fUpdateSatus('@Model.dtDetails.Rows[i]["Pk_Id"].ToString()','@Model.dtDetails.Rows[i]["FK_UserId"].ToString()')">@Model.dtDetails.Rows[i]["status"].ToString()</a>
 
 
                                             </td>
                                             <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
                                             <td>
-                                                <a href="/Admin/AddUserTask?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning">Edit</a>
-                                                <a href="/Admin/UserTaskList?DelId=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-danger" title="Delete">Delete</a>
+                                                <a href="/Admin/AddUserTask?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="/Admin/UserTaskList?DelId=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-danger btn-sm" title="Delete">Delete</a>
                                             </td>
                                         </tr>
                                         s++;
@@ -92,7 +92,7 @@
                                 <tr class="hdr">
                                     <th>S. No.</th>
                                     <th>Login Id</th>
-                                    <th>Name</th>
+                                    <th>Site Name</th>
                                     <th>Task Name</th>
                                     <th>Task Details</th>
                                     <th>Status</th>
@@ -113,7 +113,7 @@
                                         <tr>
                                             <td>@(s + 1)</td>
                                             <td>@Model.dtDetails1.Rows[i]["LoginId"].ToString()</td>
-                                            <td>@Model.dtDetails1.Rows[i]["Name"].ToString()</td>
+                                            <td>@Model.dtDetails1.Rows[i]["SiteName"].ToString()</td>
                                             <td>@Model.dtDetails1.Rows[i]["TaskName"].ToString()</td>
                                             <td>@Model.dtDetails1.Rows[i]["TaskDetails"].ToString()</td>
                                             <td>
@@ -146,19 +146,20 @@
 </div>
 
 <script>
-    function fUpdateSatus(pk_id) {
+    function fUpdateSatus(pk_id, FK_UserId) {
         debugger;
-        var confirm = 'confirm("Are you sure want to complete their task?")';
-        if (confirm == true) {
+        var status = confirm("Are you sure want to complete their task?");
+        if (status == true) {
             $.ajax({
                 url: '/Admin/UpdateTaskstatus',
-                data: { pk_id: pk_id },
+                data: { pk_id: pk_id, FK_UserId: FK_UserId },
                 type: 'GET',
                 success: function (response) {
                     if (response != null) {
                         console.log(response);
                         if (response != null) {
                             alert(response.msg);
+                            window.reload();
                         }
                         else {
                             alert('Somthing went wrong');

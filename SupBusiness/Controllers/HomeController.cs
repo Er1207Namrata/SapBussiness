@@ -29,7 +29,7 @@ namespace SupBusiness.Controllers
                 {
                     for (int i =0;i< dataSet.Tables[0].Rows.Count;i++)
                     {
-                        ddldesignation.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[0]["Name"].ToString(), Value = dataSet.Tables[0].Rows[0]["Id"].ToString() });
+                        ddldesignation.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[i]["Name"].ToString(), Value = dataSet.Tables[0].Rows[i]["Id"].ToString() });
                     }
                 }
                 ViewBag.ddldesignation = ddldesignation;
@@ -188,5 +188,11 @@ namespace SupBusiness.Controllers
         {
             return RedirectToAction("Login","Home");
         }
+      
+        public ActionResult UserRegistration()
+        {
+            return View();
+        }
+    
     }
 }

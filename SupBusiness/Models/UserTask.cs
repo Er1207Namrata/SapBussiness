@@ -9,6 +9,8 @@ namespace SupBusiness.Models
         public string TaskDetails { get; set; }
         public string SiteName { get; set; }
         public string SiteId { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
 
         public DataSet GetUserDetails()
         {
@@ -42,6 +44,9 @@ namespace SupBusiness.Models
                                       new SqlParameter("@AddedBy",AddedBy),
                                       new SqlParameter("@Pk_Id",Pk_Id),
                                       new SqlParameter("@Opcode",OpCode),
+                                      new SqlParameter("@Fk_SiteId",SiteId),
+                                      new SqlParameter("@StartDate",StartDate),
+                                      new SqlParameter("@EndDate",EndDate),
                                      
 
                                   };
@@ -56,6 +61,28 @@ namespace SupBusiness.Models
             }
         }
 
+        public DataSet GetSiteList()
+        {
+            try
+            {
+                SqlParameter[] para = {
 
+                                      new SqlParameter("@SiteName",SiteName),
+                                      new SqlParameter("@AddedBy",AddedBy),
+                                      new SqlParameter("@Pk_Id",Pk_Id),
+                                      new SqlParameter("@Opcode",OpCode),
+
+
+                                  };
+
+                DataSet ds = ConnectionManager.ExecuteQuery(ProcedureName.SaveSiteMaster, para);
+                return ds;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

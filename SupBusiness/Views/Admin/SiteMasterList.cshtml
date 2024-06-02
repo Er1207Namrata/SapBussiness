@@ -6,7 +6,11 @@
 
 <div class="row page-titles">
     <div class="col-md-12 col-12 align-self-center d-flex justify-content-between">
-        <h4 class="page-title mb-0">Sector Master List</h4>
+        <h4 class="page-title mb-0">Site  List</h4>
+        <a href="#" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-plus"></i>
+            Add Site
+        </a>
     </div>
 </div>
 
@@ -20,62 +24,62 @@
         }
         </div>*@
         <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
+
+            @if (Model != null && Model.dtDetails != null && Model.dtDetails.Rows.Count > 0)
+            {
+                for (int i = 0; i < Model.dtDetails.Rows.Count; i++)
+                {
+                    <div class="col-md-3 p-1">
+
+                        <div class="card" >
+                            <div class="card-body">
+                                <div class="row">
+                                    <a href="/Admin/SiteMasterList"><i class="fa fa-home" title="Add Site"></i></a>
+                                    <div class="col-sm-6"> <h5 class="card-title"><b>@Model.dtDetails.Rows[i]["SiteName"].ToString()</b></h5></div>
+                                    <div class="col-sm-6"> <a href="/Admin/AddUserTask?siteId=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-primary  btn-sm">Add Task</a></div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-hover">
-                            <thead>
+                }
+            }
 
-                                <tr class="hdr">
-                                    <th>S. No.</th>
-                                    <th>Site Name</th>
-                                    <th>Create Date</th>
 
-                                    <th align="left" scope="col">Action</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                @if (Model != null && Model.dtDetails != null && Model.dtDetails.Rows.Count > 0)
-                                {
-                                    int s = 0;
-                                    for (int i = 0; i < Model.dtDetails.Rows.Count; i++)
-                                    {
-                                        <tr>
-                                            <td>@(s + 1)</td>
-                                            <td>@Model.dtDetails.Rows[i]["SiteName"].ToString()</td>
-                                            @*  <td>@Model.dtDetails.Rows[i]["TaskDetails"].ToString()</td>
-                                    <td>@Model.dtDetails.Rows[i]["status"].ToString()</td>*@
-                                            <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
-                                            <td>
-                                                <a href="/Admin/AddUserTask" title="Add Task" class="btn btn-primary  btn-sm text-white">Add Task</a>
-                                                <a href="/Admin/SiteMaster?editId=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="/Admin/SiteMaster?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-danger btn-sm text-white" title="Delete">Delete</a>
-                                            </td>
-                                        </tr>
-                                        s++;
-                                    }
-                                }
-                                else
-                                {
-                                    <tr>
-                                        <td colspan="5"> No Record found !!</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
-   
 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <form asp-action="SiteMaster">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add/Update Site List</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="email2"> Site Name</label><span style="color:red;">*</span>
+                                    <input type="text" class="form-control" asp-for="SiteName" />
+                                    <input type="hidden" asp-for="Pk_Id" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Save" name="Save" id="Save" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 

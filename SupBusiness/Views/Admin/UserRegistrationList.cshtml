@@ -6,24 +6,21 @@
 
 <div class="content">
     <div class="page-inner">
-        @*<div class="page-header">
-        <h4 class="page-title">Sector Master List</h4>
-        @if (PermissionManager.IsActionPermit("Sector Master", ViewOptions.FormSave))
-        {
-        <a href="/Master/SectorMaster" class="btn btn-primary btn-round ml-auto" style="flood-color:white;"><i class="fa fa-plus"></i>Add Sector</a>
-        }
-        </div>*@
-        <div clas`  s="row">
+        <div class="page-header">
+        <h4 class="page-title">User  List</h4>
+
+            <span class="text-danger">@TempData["Message"]</span>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                    </div>
+                    
                     <div class="card-body">
                         <table class="table table-hover">
                             <thead>
 
                                 <tr class="hdr">
-                                    <th>S. No.</th>
+                                    <th>S.No.</th>
                                     <th>Login Id</th>
                                     <th>Password</th>
                                     <th>Name</th>
@@ -51,8 +48,8 @@
                                             <td>@Model.dtDetails.Rows[i]["MobileNo"].ToString()</td>
                                             <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
                                             <td>
-                                                <a href="#" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="text-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                                <a href="/Admin/UserRegistration?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="/Admin/UserRegistration?delid=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-danger btn-sm" title="Delete">Delete</a>
                                             </td>
                                         </tr>
                                         s++;

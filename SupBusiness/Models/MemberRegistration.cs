@@ -28,7 +28,8 @@ namespace SupBusiness.Models
                                       new SqlParameter("@MobileNo",MobileNumber),
                                       //new SqlParameter("@EmailId",EmailId),
                                       new SqlParameter("@AddedBy",AddedBy),
-                                      new SqlParameter("@OpCode",OpCode)
+                                      new SqlParameter("@OpCode",OpCode),
+                                      new SqlParameter("@Pk_Id",Pk_Id=="0"?null:Pk_Id)
 
                                   };
 

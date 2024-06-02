@@ -1,0 +1,157 @@
+﻿@model SupBusiness.Models.Login
+@{
+    ViewData["Title"] = "UserRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Banner Style One Start -->
+<section class="banner-style-one">
+    <div class="parallax" style="background-image: url(websitecss/assets/images/pattren-3.png);"></div>
+    <div class="container">
+        <div class="row">
+            <div class="banner-details">
+                <h2>Login</h2>
+                <p>our values and vaulted us to the top of our industry.</p>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrums">
+        <div class="container">
+            <div class="row">
+                <ul>
+                    <li>
+                        <a href="/Home/Index">
+                            <i class="fa-solid fa-house"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="current">
+                        <p>Registration</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Style One End -->
+<!-- Login Register Start -->
+<section class="gap login-register">
+    <div class="container">
+
+        <div class="row">
+            @*<div class="col-lg-6">
+                <div class="box login">
+                    <h3>Log In Your Account</h3>
+                    <form asp-action="Login" method="post">
+                        <input type="text" asp-for="LoginId" placeholder="Enter you login id">
+                        <input type="password" asp-for="Password" placeholder="Password">
+                        <div class="remember">
+                            <div class="first">
+                                <input type="checkbox" name="checkbox" id="checkbox">
+                                <label for="checkbox">Remember me</label>
+                            </div>
+                            <div class="second">
+                                <a href="javascript:void(0)">New User?</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="theme-btn"><i class="fa-solid fa-angles-right"></i> Login</button>
+
+                    </form>
+                </div>
+            </div>*@
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6">
+                <div class="box register">
+                    <div class="parallax" style="background-image: url(websitecss/assets/images/pattren.png);"></div>
+                    <h3>Registred Your Account</h3>
+                    <form>
+                        <input type="text" name="fistname" id="fistName" placeholder="Enter Fisrt Name">
+                        <input type="text" name="MiddleName" id="MiddleName" placeholder="Enter Middle Name">
+                        <input type="text" name="LastName" id="LastName" placeholder="Enter Last Name">
+                        <input type="text" name="MobileNumber" id="MobileNumber" placeholder="Enter Mobile No">
+                        @*<input type="password" name="password" placeholder="Password">*@
+                        <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>
+                        <button type="button" class="theme-btn" onclick="return fuserValidation()"><i class="fa-solid fa-angles-right"></i> Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="WelComeModal" tabindex="-1" aria-labelledby="WelComeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="WelComeModalLabel">Welcome</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <img src="~/websitecss/assets/images/wel.png" style="width: 168px;text-align: center;margin-left: 132px;" />
+                <p>Login Id: <b><span id="txtLoginId"></span></b></p>
+                <p>Password : <b><span id="txtPassword"></span></b></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login Register End -->
+<script>
+    function fuserValidation() {
+
+        if ($('#fistName').val() == '' || $('#fistName').val() == null) {
+            $('#fistName').focus();
+            return false;
+
+        }
+        if ($('#MiddleName').val() == '' || $('#MiddleName').val() == null) {
+            $('#MiddleName').focus();
+            return false;
+        }
+        if ($('#LastName').val() == '' || $('#LastName').val() == null) {
+            $('#LastName').focus();
+            return false;
+
+        }
+        if ($('#MobileNumber').val() == '' || $('#MobileNumber').val() == null) {
+            $('#MobileNumber').focus();
+            $('#MobileNumber').val('');
+            return false;
+        }
+
+        $.ajax({
+            url: '/Home/SaveUserRegistration',
+            data: { FistName: $('#fistName').val(), MiddleName: $('#MiddleName').val(), LastName: $('#LastName').val(), MobileNumber: $('#MobileNumber').val() },
+            type: 'POST',
+            success: function (response) {
+                if (response != null) {
+                    console.log(response);
+                    if (response != null) {
+                        if (response.flag == "1") {
+                            $("#txtLoginId").text(response.loginId);
+                            $("#txtPassword").text(response.password);
+                            $("#WelComeModal").modal('show');
+
+                        }
+                    }
+                    else {
+                        alert('Somthing went wrong');
+                    }
+                }
+            },
+            Error: function () {
+
+            }
+        });
+    }
+</script>
+

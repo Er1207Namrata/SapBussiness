@@ -17,40 +17,44 @@ namespace SupBusiness.Controllers
         {
             return View();
         }
-        public IActionResult UserRegistration(MemberRegistration model,string save)
+        public IActionResult UserRegistration(MemberRegistration model, string save,string Id,string delid)
         {
             try
             {
                 DataSet ds = new DataSet();
-
-                if (!string.IsNullOrEmpty(save))
+                if(!string.IsNullOrEmpty(Id))
                 {
-                    model.AddedBy = "1";
-                    model.OpCode = 1;
+                    model.Pk_Id = Id;
+                    model.OpCode = 4;
+                    ds = model.SaveUserRegistration();
+                    if(ds!= null&&ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
+                    {
+                        model.FirstName = ds.Tables[0].Rows[0]["FirstName"].ToString();
+                        model.LastName = ds.Tables[0].Rows[0]["LastName"].ToString();
+                        model.MiddleName = ds.Tables[0].Rows[0]["MiddleName"].ToString();
+                        model.MobileNumber = ds.Tables[0].Rows[0]["MobileNo"].ToString();
+                        model.Pk_Id = ds.Tables[0].Rows[0]["Pk_Id"].ToString();
+                    }
+                }
+                if(!string.IsNullOrEmpty(delid))
+                {
+                    model.Pk_Id = delid;
+                    model.OpCode = 3;
+                    model.AddedBy= HttpContext.Session.GetString("Fk_MemId");
                     ds = model.SaveUserRegistration();
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
-                        if (ds.Tables[0].Rows[0]["flag  ehp[0"].ToString() == "1")
+                        if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
                         {
                             TempData["Message"] = ds.Tables[0].Rows[0]["Msg"].ToString();
+                            return RedirectToAction("UserRegistrationList", "Admin");
                         }
                     }
                 }
-            }
-            catch(Exception ex)
-            {
-                throw;
-            }
-            return View();
-        }
-        public IActionResult SiteMaster(SiteMaster model,string Save,string editId)
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                if(!string.IsNullOrEmpty(Save))
+                if (!string.IsNullOrEmpty(save))
                 {
-                    if(Save=="Save")
+                    model.AddedBy = HttpContext.Session.GetString("Fk_MemId");
+                    if(save=="Save")
                     {
                         model.OpCode = 1;
                     }
@@ -58,99 +62,25 @@ namespace SupBusiness.Controllers
                     {
                         model.OpCode = 2;
                     }
-                    model.AddedBy = "1";
-                    ds = model.SaveSiteMaster();
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-                    {
-                        if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
-                        {
-                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
-                        }
-                        else
-                        {
-                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
-                        }
-                    }
                     
-                }
-                if(!string.IsNullOrEmpty(editId))
-                {
-                    model.Pk_Id = editId;
-                    ds = model.SaveSiteMaster();
-                    if(ds!=null && ds.Tables.Count>0 && ds.Tables[0].Rows.Count > 0)
-                    {
-                        model.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
-                        model.Pk_Id = ds.Tables[0].Rows[0]["Pk_Id"].ToString();
-                    }
-                }
-                model.OpCode = 4;
-                ds = model.SaveSiteMaster();
-                model.dtDetails = ds.Tables[0];
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-            return View(model);
-        }
-        public IActionResult SiteMasterList(SiteMaster model, string Save)
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                
-                model.OpCode = 4;
-                ds = model.SaveSiteMaster();
-                model.dtDetails = ds.Tables[0];
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return View(model);
-        }
-        public IActionResult UserTaskList(UserTask model,string Save,string DelId)
-        
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                if (!string.IsNullOrEmpty(DelId))
-                {
-                    model.Pk_Id = DelId;
-                    model.OpCode = 3;
-                    model.AddedBy = "1";
-                    ds = model.SaveTaskList();
+                    ds = model.SaveUserRegistration();
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
                         {
-                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
-                            return RedirectToAction("UserTaskList", "Admin");
-                        }
-                        else
-                        {
-                            TempData["Msg"] = ds.Tables[0].Rows[0]["flag"].ToString();
-                            return RedirectToAction("UserTaskList", "Admin");
+                            TempData["Message"] = ds.Tables[0].Rows[0]["Msg"].ToString();
+                            return RedirectToAction("UserRegistrationList", "Admin");
                         }
                     }
                 }
-            
-                
-                model.OpCode = 4;
-                ds = model.SaveTaskList();
-                model.dtDetails = ds.Tables[0];
-                model.dtDetails1 = ds.Tables[1];
-                
             }
-            catch(Exception)
+            catch (Exception ex)
             {
                 throw;
             }
             return View(model);
         }
-        
-        public ActionResult  AddUserTask(UserTask model, string Save,string Id)
+        public IActionResult SiteMaster(SiteMaster model, string Save, string editId)
         {
             try
             {
@@ -165,14 +95,138 @@ namespace SupBusiness.Controllers
                     {
                         model.OpCode = 2;
                     }
+                    model.AddedBy = HttpContext.Session.GetString("Fk_MemId");
+                    ds = model.SaveSiteMaster();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
+                            return RedirectToAction("SiteMasterList", "Admin");
+                        }
+                        else
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
+                            return RedirectToAction("SiteMasterList", "Admin");
+                        }
+                    }
 
-                    model.AddedBy = "1";
+                }
+                if (!string.IsNullOrEmpty(editId))
+                {
+                    model.Pk_Id = editId;
+                    ds = model.SaveSiteMaster();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        model.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
+                        model.Pk_Id = ds.Tables[0].Rows[0]["Pk_Id"].ToString();
+                    }
+                }
+                model.OpCode = 4;
+                ds = model.SaveSiteMaster();
+                model.dtDetails = ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View(model);
+        }
+        public IActionResult SiteMasterList(SiteMaster model, string Save)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                model.OpCode = 4;
+                ds = model.SaveSiteMaster();
+                model.dtDetails = ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View(model);
+        }
+        public IActionResult UserTaskList(UserTask model, string Save, string DelId)
+
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                if (!string.IsNullOrEmpty(DelId))
+                {
+                    model.Pk_Id = DelId;
+                    model.OpCode = 3;
+                    model.AddedBy = HttpContext.Session.GetString("Fk_MemId"); 
                     ds = model.SaveTaskList();
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
                         {
                             TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
+                            return RedirectToAction("UserTaskList", "Admin");
+                        }
+                        else
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["flag"].ToString();
+                            return RedirectToAction("UserTaskList", "Admin");
+                        }
+                    }
+                }
+
+
+                model.OpCode = 4;
+                ds = model.SaveTaskList();
+                model.dtDetails = ds.Tables[0];
+                model.dtDetails1 = ds.Tables[1];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View(model);
+        }
+
+        public ActionResult AddUserTask(UserTask model, string Save, string Id, string siteId)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                List<SelectListItem> ddluser = new List<SelectListItem>();
+                model.OpCode = 3;
+                ds = model.GetMasterData();
+                ddluser.Add(new SelectListItem { Text = "--Select User--", Value = "0" });
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        ddluser.Add(new SelectListItem { Text = ds.Tables[0].Rows[i]["Name"].ToString(), Value = ds.Tables[0].Rows[i]["Id"].ToString() });
+                    }
+                }
+                ViewBag.ddluser = ddluser;
+                if (!string.IsNullOrEmpty(Save))
+                {
+                    if (Save == "Save")
+                    {
+                        model.OpCode = 1;
+                    }
+                    else
+                    {
+                        model.OpCode = 2;
+                    }
+                    model.StartDate = string.IsNullOrEmpty(model.StartDate) ? null : Common.ConvertToSystemDate(model.StartDate, "dd/MM/yyyy");
+                    model.EndDate = string.IsNullOrEmpty(model.EndDate) ? null : Common.ConvertToSystemDate(model.EndDate, "dd/MM/yyyy");
+                    model.AddedBy = HttpContext.Session.GetString("Fk_MemId");
+                    ds = model.SaveTaskList();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
+                            //return RedirectToAction("UserTaskList", "Admin");
+
                         }
                         else
                         {
@@ -180,41 +234,56 @@ namespace SupBusiness.Controllers
                         }
                     }
                 }
-                if(!string.IsNullOrEmpty(Id))
+                if (!string.IsNullOrEmpty(Id))
                 {
                     model.Pk_Id = Id;
                     model.OpCode = 4;
                     ds = model.SaveTaskList();
-                    if(ds!=null&&ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         model.TaskName = ds.Tables[0].Rows[0]["TaskName"].ToString();
                         model.TaskDetails = ds.Tables[0].Rows[0]["TaskDetails"].ToString();
-                       // model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                        //model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                         model.LoginId = ds.Tables[0].Rows[0]["FK_UserId"].ToString();
+                        model.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
                         model.Pk_Id = ds.Tables[0].Rows[0]["Pk_Id"].ToString();
+                        model.SiteId = ds.Tables[0].Rows[0]["Fk_SiteId"].ToString();
+                        ViewBag.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
+                        TempData["Fk_UserId"] = ds.Tables[0].Rows[0]["FK_UserId"].ToString();
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(siteId))
+                {
+                    model.Pk_Id = siteId;
+                    model.OpCode = 4;
+                    ds = model.GetSiteList();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        ViewBag.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
+                        model.SiteId = ds.Tables[0].Rows[0]["Pk_Id"].ToString();
                     }
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
             return View(model);
         }
-        public ActionResult GetUserDetails(UserTask model,string LoginId)
+        public ActionResult GetUserDetails(UserTask model, string LoginId)
         {
             try
             {
-                
-                DataSet ds= new DataSet();
+
+                DataSet ds = new DataSet();
                 model.LoginId = LoginId;
-                ds=model.GetUserDetails();
-                if(ds!=null && ds.Tables.Count>0 && ds.Tables [0].Rows.Count > 0)
+                ds = model.GetUserDetails();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
@@ -227,34 +296,50 @@ namespace SupBusiness.Controllers
             try
             {
                 DataSet ds = new DataSet();
-                model.OpCode=4;
+                model.OpCode = 4;
                 ds = model.SaveUserRegistration();
                 model.dtDetails = ds.Tables[0];
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
             return View(model);
         }
-        
-        public ActionResult TopUp(MemberTopUp model,string Save)
+
+        public ActionResult TopUp(MemberTopUp model, string Save)
         {
             try
             {
                 DataSet dataSet = new DataSet();
+                #region ddlPaymentMode
                 List<SelectListItem> ddlpaymentmode = new List<SelectListItem>();
                 model.OpCode = 1;
                 dataSet = model.GetMasterData();
-                ddlpaymentmode.Add(new SelectListItem { Text = "--Select Designation--", Value = "0" });
+                ddlpaymentmode.Add(new SelectListItem { Text = "--Select Payment mode--", Value = "0" });
                 if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
                 {
                     for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                     {
-                        ddlpaymentmode.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[0]["Name"].ToString(), Value = dataSet.Tables[0].Rows[0]["Id"].ToString() });
+                        ddlpaymentmode.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[i]["Name"].ToString(), Value = dataSet.Tables[0].Rows[i]["Id"].ToString() });
                     }
                 }
                 ViewBag.ddlpaymentmode = ddlpaymentmode;
+                #endregion ddlPaymentmode
+                #region ddlUser
+                List<SelectListItem> ddluser = new List<SelectListItem>();
+                model.OpCode = 3;
+                dataSet = model.GetMasterData();
+                ddluser.Add(new SelectListItem { Text = "--Select User--", Value = "0" });
+                if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                    {
+                        ddluser.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[i]["Name"].ToString(), Value = dataSet.Tables[0].Rows[i]["Id"].ToString() });
+                    }
+                }
+                ViewBag.ddluser = ddluser;
+                #endregion ddlUser
                 if (!string.IsNullOrEmpty(Save))
                 {
                     DataSet ds = new DataSet();
@@ -272,9 +357,9 @@ namespace SupBusiness.Controllers
                         }
                     }
                 }
-              
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -338,13 +423,14 @@ namespace SupBusiness.Controllers
             return View(model);
         }
 
-        public ActionResult UpdateTaskstatus(UserTask model, string pk_id)
+        public ActionResult UpdateTaskstatus(UserTask model, string pk_id,string FK_UserId)
         {
             try
             {
                 DataSet ds = new DataSet();
                 model.OpCode = 5;
                 model.Pk_Id = pk_id;
+                model.LoginId = FK_UserId;
                 model.AddedBy = HttpContext.Session.GetString("Fk_MemId");
                 ds = model.SaveTaskList();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -359,13 +445,13 @@ namespace SupBusiness.Controllers
             }
             return Json(model);
         }
-       
+
         public ActionResult PaymentModeMaster(MemberTopUp model, string Save)
         {
             try
             {
                 DataSet ds = new DataSet();
-                if(!string.IsNullOrEmpty(Save))
+                if (!string.IsNullOrEmpty(Save))
                 {
                     model.AddedBy = HttpContext.Session.GetString("Fk_MemId");
                     model.OpCode = 1;
@@ -375,12 +461,12 @@ namespace SupBusiness.Controllers
                         if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
                         {
                             TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
-                            
+
                         }
                         else
                         {
                             TempData["Msg"] = ds.Tables[0].Rows[0]["flag"].ToString();
-                           
+
                         }
                     }
                 }
@@ -388,13 +474,13 @@ namespace SupBusiness.Controllers
                 ds = model.GetPaymentMode();
                 model.dtDetails = ds.Tables[0];
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
             return View(model);
         }
-       
-    
+
+
     }
 }

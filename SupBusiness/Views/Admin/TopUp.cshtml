@@ -28,7 +28,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email2">User LoginId</label><span style="color:red;">*</span>
-                                        <input type="text" class="form-control" asp-for="LoginId" onchange="return getUserDetails()" />
+
+                                        @Html.DropDownListFor(m => m.LoginId, new SelectList(ViewBag.ddluser, "Value", "Text"), new { @class = "web form-control",@onchange="return getUserDetails()" })
+
+                                        @*<input type="text" class="form-control" asp-for="LoginId" onchange="return getUserDetails()" />*@
                                         <input type="hidden" asp-for="Pk_Id" />
                                     </div>
                                 </div>
@@ -36,7 +39,7 @@
                                 <div class="col-md-6 ">
                                     <div class="form-group">
                                         <label for="email2">Name</label><span style="color:red;">*</span>
-                                        <input type="text" class="form-control" asp-for="Name" />
+                                        <input type="text" class="form-control" asp-for="Name" readonly/>
                                     </div>
                                 </div>
                                 <div class="col-md-6 ">
