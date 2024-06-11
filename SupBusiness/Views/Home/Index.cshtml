@@ -775,10 +775,6 @@
 
 
 
-
-
-
-
     <button id="scrollTop" class="scrollTopStick">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
@@ -860,7 +856,8 @@
                 <div class="modal-body">
                     <div class="contact-form-one popup">
                         <div class="c-form-2">
-                            <h3>We are happy to help you ,Let's connect</h3>
+                            <h4 style="color:white;">We are happy to help you ,Let's connect</h3>
+                            <h4 id="txtLeadId" style="color:white;"></h4>
                             <div class="parallax" style="background-image: url(assets/images/pattren.png);"></div>
                             <form>
                                 <div class="row g-0">
@@ -906,10 +903,12 @@
                     if (response != null) {
                         console.log(response);
                         if (response != null) {
-                            alert(response.msg);
+                            $('#txtLeadId').text(response.msg)
+                            
                         }
                         else {
-                            alert('Somthing went wrong');
+                            $('#txtLeadId').text('Somthing went wrong')
+                            
                         }
                     }
                 },

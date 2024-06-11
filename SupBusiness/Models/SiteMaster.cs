@@ -7,6 +7,7 @@ namespace SupBusiness.Models
     {
         public string SiteId { get; set; }
         public string SiteName { get; set; }
+        public string Password { get; set; }
         public DataSet SaveSiteMaster()
         {
             try
@@ -17,6 +18,7 @@ namespace SupBusiness.Models
                                       new SqlParameter("@AddedBy",AddedBy),
                                       new SqlParameter("@Pk_Id",Pk_Id),
                                       new SqlParameter("@Opcode",OpCode),
+                                      new SqlParameter("@Password",Password),
 
 
                                   };

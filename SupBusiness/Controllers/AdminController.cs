@@ -132,12 +132,33 @@ namespace SupBusiness.Controllers
             }
             return View(model);
         }
-        public IActionResult SiteMasterList(SiteMaster model, string Save)
+        public IActionResult SiteMasterList(SiteMaster model, string Save,string Delete)
         {
             try
             {
                 DataSet ds = new DataSet();
+                if(!string.IsNullOrEmpty(Delete))
+                {
+                    model.Pk_Id = model.SiteId;
+                    
+                    model.AddedBy= HttpContext.Session.GetString("Fk_MemId");
+                    model.OpCode = 3;
+                    ds = model.SaveSiteMaster();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
+                            return RedirectToAction("SiteMasterList", "Admin");
+                        }
+                        else
+                        {
+                            TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
+                            return RedirectToAction("SiteMasterList", "Admin");
+                        }
+                    }
 
+                }
                 model.OpCode = 4;
                 ds = model.SaveSiteMaster();
                 model.dtDetails = ds.Tables[0];

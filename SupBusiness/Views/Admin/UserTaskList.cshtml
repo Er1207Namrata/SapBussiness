@@ -29,8 +29,11 @@
                                     <th>S. No.</th>
                                     <th>Login Id</th>
                                     <th>Site Name</th>
-                                    <th>Task Name</th>
-                                    <th>Task Details</th>
+                                    <th>Activity </th>
+                                    <th>Activity Details</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    @*<th>Total Days</th>*@
                                     <th>Status</th>
 
                                     <th align="left" scope="col">Action</th>
@@ -59,6 +62,9 @@
 
                                             </td>
                                             <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["StartDate"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["EndDate"].ToString()</td>
+                                            @*<td>@Model.dtDetails.Rows[i]["TotalDay"].ToString()</td>*@
                                             <td>
                                                 <a href="/Admin/AddUserTask?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning btn-sm">Edit</a>
                                                 <a href="/Admin/UserTaskList?DelId=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" class="btn btn-danger btn-sm" title="Delete">Delete</a>
@@ -93,8 +99,9 @@
                                     <th>S. No.</th>
                                     <th>Login Id</th>
                                     <th>Site Name</th>
-                                    <th>Task Name</th>
-                                    <th>Task Details</th>
+                                    <th>Activity</th>
+                                    <th>Activity Details</th>
+                                    <th>Completed Date</th>
                                     <th>Status</th>
 
                                     <th align="left" scope="col">Action</th>
@@ -122,6 +129,7 @@
 
                                             </td>
                                             <td>@Model.dtDetails1.Rows[i]["AddedOn"].ToString()</td>
+                                            <td>@Model.dtDetails1.Rows[i]["EndDate"].ToString()</td>
                                             <td>
 
                                                 <a href="/Admin/UserTaskList?DelId=@Model.dtDetails1.Rows[i]["Pk_Id"].ToString()" class="btn btn-warning" title="View">Download</a>
