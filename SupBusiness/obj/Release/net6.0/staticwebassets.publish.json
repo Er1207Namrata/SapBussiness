@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KbX4fG2vVfE5JeBBvu2AKUTQ0t6XlgcBmYHhiO0PWao=",
+  "Hash": "f5h1tLQRSA6Ht0KsidMaJrqWHcPavbAXEU5uJ1s9gAo=",
   "Source": "SupBusiness",
   "BasePath": "_content/SupBusiness",
   "Mode": "Default",
@@ -15334,6 +15334,23 @@
       "OriginalItemSpec": "wwwroot\\WebsiteCss\\assets\\images\\down-arrow-clr.svg"
     },
     {
+      "Identity": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\WebsiteCss\\assets\\images\\download-svg.svg",
+      "SourceId": "SupBusiness",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\",
+      "BasePath": "_content/SupBusiness",
+      "RelativePath": "WebsiteCss/assets/images/download-svg.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WebsiteCss\\assets\\images\\download-svg.svg"
+    },
+    {
       "Identity": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\WebsiteCss\\assets\\images\\est-img.png",
       "SourceId": "SupBusiness",
       "SourceType": "Discovered",
@@ -16354,6 +16371,23 @@
       "OriginalItemSpec": "wwwroot\\WebsiteCss\\assets\\images\\reno-img.jpg"
     },
     {
+      "Identity": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\WebsiteCss\\assets\\images\\SAPLOGO.svg",
+      "SourceId": "SupBusiness",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\",
+      "BasePath": "_content/SupBusiness",
+      "RelativePath": "WebsiteCss/assets/images/SAPLOGO.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WebsiteCss\\assets\\images\\SAPLOGO.svg"
+    },
+    {
       "Identity": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\WebsiteCss\\assets\\images\\service-detail-1.jpg",
       "SourceId": "SupBusiness",
       "SourceType": "Discovered",
@@ -16811,6 +16845,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\WebsiteCss\\assets\\images\\team-detail-1.jpg"
+    },
+    {
+      "Identity": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\WebsiteCss\\assets\\images\\TWC_Profile_2024_1.pdf",
+      "SourceId": "SupBusiness",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\",
+      "BasePath": "_content/SupBusiness",
+      "RelativePath": "WebsiteCss/assets/images/TWC_Profile_2024_1.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WebsiteCss\\assets\\images\\TWC_Profile_2024_1.pdf"
     },
     {
       "Identity": "D:\\NamrataYadav\\SapBussiness\\SupBusiness\\wwwroot\\WebsiteCss\\assets\\images\\video-popup-img.jpg",

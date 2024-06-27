@@ -22,17 +22,17 @@ namespace SupBusiness.Controllers
             {
                 DataSet dataSet = new DataSet();
                 List<SelectListItem> ddldesignation = new List<SelectListItem>();
-                model.OpCode = 2;
-                dataSet = model.GetMasterData();
-                ddldesignation.Add(new SelectListItem { Text = "--Select Designation--", Value = "0" });
-                if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
-                {
-                    for (int i =0;i< dataSet.Tables[0].Rows.Count;i++)
-                    {
-                        ddldesignation.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[i]["Name"].ToString(), Value = dataSet.Tables[0].Rows[i]["Id"].ToString() });
-                    }
-                }
-                ViewBag.ddldesignation = ddldesignation;
+                //model.OpCode = 2;
+                //dataSet = model.GetMasterData();
+                //ddldesignation.Add(new SelectListItem { Text = "--Select Designation--", Value = "0" });
+                //if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+                //{
+                //    for (int i =0;i< dataSet.Tables[0].Rows.Count;i++)
+                //    {
+                //        ddldesignation.Add(new SelectListItem { Text = dataSet.Tables[0].Rows[i]["Name"].ToString(), Value = dataSet.Tables[0].Rows[i]["Id"].ToString() });
+                //    }
+                //}
+                //ViewBag.ddldesignation = ddldesignation;
             }  
             catch(Exception)
             {
@@ -193,6 +193,10 @@ namespace SupBusiness.Controllers
         {
             return View();
         }
-    
+     
+        public ActionResult Protfolio()
+        {
+            return View();
+        }
     }
 }
