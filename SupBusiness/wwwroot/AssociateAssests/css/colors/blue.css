@@ -138,7 +138,7 @@ a.link:hover, a.link:focus {
 /*sidebar navigation
 *******************/
 .sidebar-nav {
-    background: none;
+    background: #276997;
     padding-bottom: 60px;
 }
 
@@ -176,7 +176,7 @@ a.link:hover, a.link:focus {
 
     .sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li.active:hover > a {
         color: #ffffff;
-        background: #8d8fd5 !important;
+        background: #5eade5 !important;
     }
 
 .sidebar-nav > ul > li.active > a i, .sidebar-nav > ul > li.active:hover > a i {

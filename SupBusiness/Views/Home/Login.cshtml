@@ -43,16 +43,16 @@
             <div class="col-lg-6"></div>
             <div class="col-lg-6">
                 <div class="box login">
-                    <h3>Log In Your Account</h3>
+                    <h3 class="text-white">Log In Your Account</h3>
                     <form asp-action="Login" method="post">
                         <input type="text" asp-for="LoginId" placeholder="Enter you login id">
                         <input type="password" asp-for="Password" placeholder="Password">
                         <div class="remember">
                             <div class="first">
                                 <input type="checkbox" name="checkbox" id="checkbox">
-                                <label for="checkbox">Remember me</label>
+                                <label for="checkbox" class="text-white">Remember me</label>
                             </div>
-                            <div class="second">
+                            <div class="text-white">
                                 <a href="/Home/UserRegistration">New User?</a>
                             </div>
                         </div>

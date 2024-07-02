@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            @if(Model!=null)
+                            @if(Model!=null && Model.Pk_Id!=null)
                             {
                                 <input type="submit" class="btn btn-success" name="Save" value="Update" id="Save" />
                             }
