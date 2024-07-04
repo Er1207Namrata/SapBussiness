@@ -8,7 +8,10 @@
     <div class="col-md-12 col-12 align-self-center d-flex justify-content-between">
         <h4 class="page-title mb-0">Task List</h4>
         <h4 class="text-danger">@TempData["Msg"]</h4>
+        <a href="/Admin/Dashboard" class="btn btn-primary btn-sm">
 
+            Back
+        </a>
     </div>
 </div>
 
@@ -33,6 +36,7 @@
                                     <th>Activity Details</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
+                                    <th>Total Days</th>
                                     @*<th>Total Days</th>*@
                                     <th>Status</th>
 
@@ -55,15 +59,17 @@
                                             <td>@Model.dtDetails.Rows[i]["SiteName"].ToString()</td>
                                             <td>@Model.dtDetails.Rows[i]["TaskName"].ToString()</td>
                                             <td>@Model.dtDetails.Rows[i]["TaskDetails"].ToString()</td>
+                                          
+                                            @*<td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>*@
+                                            <td>@Model.dtDetails.Rows[i]["StartDate"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["EndDate"].ToString()</td>
+                                            <td>@Model.dtDetails.Rows[i]["totaldays"].ToString()</td>
                                             <td>
 
                                                 <a href="#" class="badge bg-info text-white" onclick="return fUpdateSatus('@Model.dtDetails.Rows[i]["Pk_Id"].ToString()','@Model.dtDetails.Rows[i]["FK_UserId"].ToString()')">@Model.dtDetails.Rows[i]["status"].ToString()</a>
 
 
                                             </td>
-                                            <td>@Model.dtDetails.Rows[i]["AddedOn"].ToString()</td>
-                                            <td>@Model.dtDetails.Rows[i]["StartDate"].ToString()</td>
-                                            <td>@Model.dtDetails.Rows[i]["EndDate"].ToString()</td>
                                             @*<td>@Model.dtDetails.Rows[i]["TotalDay"].ToString()</td>*@
                                             <td>
                                                 <a href="/Admin/AddUserTask?Id=@Model.dtDetails.Rows[i]["Pk_Id"].ToString()" title="Edit" class="btn btn-warning btn-sm">Edit</a>
@@ -104,8 +110,6 @@
                                     <th>Completed Date</th>
                                     <th>Status</th>
 
-                                    <th align="left" scope="col">Action</th>
-
                                 </tr>
 
                             </thead>
@@ -123,16 +127,10 @@
                                             <td>@Model.dtDetails1.Rows[i]["SiteName"].ToString()</td>
                                             <td>@Model.dtDetails1.Rows[i]["TaskName"].ToString()</td>
                                             <td>@Model.dtDetails1.Rows[i]["TaskDetails"].ToString()</td>
+                                            <td>@Model.dtDetails1.Rows[i]["UpdatedOn"].ToString()</td>
                                             <td>
 
                                                 <a href="#" class="badge bg-success text-white">@Model.dtDetails1.Rows[i]["status"].ToString()</a>
-
-                                            </td>
-                                            <td>@Model.dtDetails1.Rows[i]["AddedOn"].ToString()</td>
-                                            <td>@Model.dtDetails1.Rows[i]["EndDate"].ToString()</td>
-                                            <td>
-
-                                                <a href="/Admin/UserTaskList?DelId=@Model.dtDetails1.Rows[i]["Pk_Id"].ToString()" class="btn btn-warning" title="View">Download</a>
                                             </td>
                                         </tr>
                                         s++;

@@ -11,6 +11,7 @@ namespace SupBusiness.Models
         public string SiteId { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
+        public string TotalDays { get; set; }
 
         public DataSet GetUserDetails()
         {
@@ -47,6 +48,7 @@ namespace SupBusiness.Models
                                       new SqlParameter("@Fk_SiteId",SiteId),
                                       new SqlParameter("@StartDate",StartDate),
                                       new SqlParameter("@EndDate",EndDate),
+                                      new SqlParameter("@totalDays",TotalDays),
                                      
 
                                   };

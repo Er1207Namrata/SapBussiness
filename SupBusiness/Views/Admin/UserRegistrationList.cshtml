@@ -4,13 +4,21 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div class="row page-titles">
+    <div class="col-md-12 col-12 align-self-center d-flex justify-content-between">
+        <h4 class="page-title mb-0">User  List</h4>
+        <span class="text-danger">@TempData["Message"]</span>
+        
+        <a href="/Admin/Dashboard" class="btn btn-primary btn-sm">
+
+            Back
+        </a>
+    </div>
+</div>
+
 <div class="content">
     <div class="page-inner">
-        <div class="page-header">
-        <h4 class="page-title">User  List</h4>
-
-            <span class="text-danger">@TempData["Message"]</span>
-        </div>
+      
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

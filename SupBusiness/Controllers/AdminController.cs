@@ -246,7 +246,16 @@ namespace SupBusiness.Controllers
                         if (ds.Tables[0].Rows[0]["flag"].ToString() == "1")
                         {
                             TempData["Msg"] = ds.Tables[0].Rows[0]["msg"].ToString();
-                            //return RedirectToAction("UserTaskList", "Admin");
+                            if(Save=="Save")
+                            {
+                                Save = null;
+                                return RedirectToAction("AddUserTask", "Admin");
+                            }
+                            else
+                            {
+                                
+                                return RedirectToAction("UserTaskList", "Admin");
+                            }
 
                         }
                         else
@@ -268,7 +277,11 @@ namespace SupBusiness.Controllers
                         model.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
                         model.Pk_Id = ds.Tables[0].Rows[0]["Pk_Id"].ToString();
                         model.SiteId = ds.Tables[0].Rows[0]["Fk_SiteId"].ToString();
+                        model.EndDate = ds.Tables[0].Rows[0]["EndDate"].ToString();
+                        model.StartDate = ds.Tables[0].Rows[0]["StartDate"].ToString();
+                        model.TotalDays = ds.Tables[0].Rows[0]["totaldays"].ToString();
                         ViewBag.SiteName = ds.Tables[0].Rows[0]["SiteName"].ToString();
+                        
                         TempData["Fk_UserId"] = ds.Tables[0].Rows[0]["FK_UserId"].ToString();
                     }
                 }
