@@ -198,5 +198,9 @@ namespace SupBusiness.Controllers
         {
             return View();
         }
+        public ActionResult cadBazaar()
+        {
+            return View();
+        }
     }
 }
