@@ -5,152 +5,153 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SupBusiness
 build_property.RootNamespace = SupBusiness
-build_property.ProjectDir = D:\NamrataYadav\SapBussiness\SupBusiness\
+build_property.ProjectDir = E:\Swati\SapBussiness\SupBusiness\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\NamrataYadav\SapBussiness\SupBusiness
+build_property.MSBuildProjectDirectory = E:\Swati\SapBussiness\SupBusiness
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/AddUserTask.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/AddUserTask.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkVXNlclRhc2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/Dashboard.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/DesignationMaster.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/DesignationMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVzaWduYXRpb25NYXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/LeadRegistrationList.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/LeadRegistrationList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGVhZFJlZ2lzdHJhdGlvbkxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/PaymentModeMaster.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/PaymentModeMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGF5bWVudE1vZGVNYXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/SiteMaster.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/SiteMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2l0ZU1hc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/SiteMasterList.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/SiteMasterList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2l0ZU1hc3Rlckxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/TopUp.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/TopUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVG9wVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/UserRegistration.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/UserRegistration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclJlZ2lzdHJhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/UserRegistrationList.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/UserRegistrationList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclJlZ2lzdHJhdGlvbkxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Admin/UserTaskList.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Admin/UserTaskList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclRhc2tMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/AboutUs.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/cadBazaar.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/cadBazaar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjYWRCYXphYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/Contact.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/Index.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/LeadRegistration.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/LeadRegistration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMZWFkUmVnaXN0cmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/Login.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/Privacy.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/Protfolio.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/Protfolio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm90Zm9saW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Home/UserRegistration.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Home/UserRegistration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyUmVnaXN0cmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/Error.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_AdminFooter.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_AdminFooter.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkZvb3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_AdminHeader.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_AdminHeader.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkhlYWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_AdminLeftSideBar.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_AdminLeftSideBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxlZnRTaWRlQmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_UserHeader.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_UserHeader.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VySGVhZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_UserLayout.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_UserLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_UserSidebar.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_UserSidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyU2lkZWJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/User/Dashboard.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/User/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/User/TaskList.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/User/TaskList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxUYXNrTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/User/UserProfile.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/User/UserProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/_ViewImports.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/_ViewStart.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_AdminLayout.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-5gm1wuxjwg
 
-[D:/NamrataYadav/SapBussiness/SupBusiness/Views/Shared/_Layout.cshtml]
+[E:/Swati/SapBussiness/SupBusiness/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-j21b1v7ccs
